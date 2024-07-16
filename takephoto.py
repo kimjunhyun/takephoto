@@ -11,6 +11,7 @@ config.read('config.ini')
 prefix = config['Settings']['prefix']
 start_number = int(config['Settings']['start_number'])
 max_images = int(config['Settings']['max_images'])
+cam_num = int(config['Settings']['cam_number'])
 
 # 저장할 폴더 생성
 output_folder = 'images'
@@ -22,7 +23,7 @@ backend_options = [cv2.CAP_ANY, cv2.CAP_DSHOW, cv2.CAP_MSMF, cv2.CAP_VFW]
 cap = None
 
 for backend in backend_options:
-    cap = cv2.VideoCapture(4, backend)
+    cap = cv2.VideoCapture(cam_num, backend)
     if cap.isOpened():
         break
 
